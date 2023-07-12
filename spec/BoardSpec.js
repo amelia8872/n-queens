@@ -134,7 +134,6 @@ describe('Board', function() {
     it('should find a queens conflict', function() {
       expect(board.hasAnyQueensConflicts()).to.be.equal(true);
     });
-
     matrix = [
       [0, 0, 0, 0],
       [1, 0, 0, 0],
