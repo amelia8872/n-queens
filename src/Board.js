@@ -150,20 +150,6 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      // // 4*4
-      // // -3 - 3
-      // // -(size-1) ------ size -1
-      // // -2
-
-
-
-      // // major ,0
-      // // major + 1, 1
-
-      // 0 -2
-      // 1 -1
-      // 2 0
-      // 3 1
 
       var size = this.rows().length;
       var count = 0;
@@ -203,9 +189,6 @@
     //
     // test if a specific minor diagonal on this board contains a conflict
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
-      console.log(minorDiagonalColumnIndexAtFirstRow);
-
-
       var size = this.rows().length;
       var count = 0;
 
