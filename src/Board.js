@@ -88,11 +88,6 @@
         return accu + curr;
       }, 0);
 
-      // if (this.rows()[rowIndex].includes(1) === true ) {
-      //   return true;
-      // } else {
-      //   return false; // fixme
-      // }
       return sum > 1;
     },
 

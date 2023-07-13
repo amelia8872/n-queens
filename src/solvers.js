@@ -63,50 +63,33 @@ window.countNRooksSolutions = function(n) {
 
   var solutionCount = 0;
 
+  var addRook = function(row) {
 
-  var rowPos = Array(n);
-  rowPos.fill(true);
-
-  var colPos = Array(n);
-  colPos.fill(true);
-
-
-
-  var addRook = function(count) { // 2
-    var row = count; // 2
-
-    // base case: if count === n, return
-    if (count === n) {
+    // base case: if row === n, return
+    if (row === n) {
       solutionCount++;
       return;
     }
-    //i think the issue is now that we dont look at 0,1 it works!
-    for (var column = 0; column < n; column++) { // col = 1
 
-      if (rowPos[row] && colPos[column]) {
-        solution.togglePiece(row, column); // (1, 1)
-        count++; // 1
+    for (var column = 0; column < n; column++) {
 
-        rowPos[row] = false;
-        colPos[column] = false;
+      solution.togglePiece(row, column);
 
-        // check if any rook conflicts happens
 
-        if (!solution.hasAnyRooksConflicts()) {
-          addRook(count);
-        }
+      // check if any rook conflicts happens
 
-        rowPos[row] = true;
-        colPos[column] = true;
-        solution.togglePiece(row, column);
-        count--;
+      if (!solution.hasAnyRooksConflicts()) {
+        addRook(row + 1);
       }
+      solution.togglePiece(row, column);
+
     }
   };
 
 
   addRook(0);
   console.log('Number of solutions for ' + n + ' rooks:', solutionCount);
+  console.log(solutionCount);
   return solutionCount;
 };
 
@@ -147,7 +130,7 @@ window.findNQueensSolution = function(n) {
   addQueen(0);
 
 
-  console.log('Single solution for ' + n + ' queens:', JSON.stringify(solution));
+  //console.log('Single solution for ' + n + ' queens:', JSON.stringify(solution));
   return solution.rows();
 };
 
